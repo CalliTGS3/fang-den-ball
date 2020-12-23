@@ -11,7 +11,7 @@ let Pause = 500
 let Level = 1
 let RundenImLevel = 5
 game.setScore(1)
-game.setLife(5)
+game.setLife(10)
 Fänger = game.createSprite(2, 4)
 basic.forever(function () {
     Ball = game.createSprite(randint(0, 4), 0)
@@ -38,6 +38,6 @@ basic.forever(function () {
     if (game.score() == RundenImLevel) {
         game.setScore(1)
         Level += 1
-        Pause = Pause / 2
+        Pause = Pause - 100
     }
 })
