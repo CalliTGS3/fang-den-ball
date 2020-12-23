@@ -15,14 +15,10 @@ game.setLife(10)
 Fänger = game.createSprite(2, 4)
 basic.forever(function () {
     Ball = game.createSprite(randint(0, 4), 0)
-    basic.pause(Pause)
-    Ball.change(LedSpriteProperty.Y, 1)
-    basic.pause(Pause)
-    Ball.change(LedSpriteProperty.Y, 1)
-    basic.pause(Pause)
-    Ball.change(LedSpriteProperty.Y, 1)
-    basic.pause(Pause)
-    Ball.change(LedSpriteProperty.Y, 1)
+    for (let index = 0; index < 4; index++) {
+        basic.pause(Pause)
+        Ball.change(LedSpriteProperty.Y, 1)
+    }
     if (Fänger.get(LedSpriteProperty.X) == Ball.get(LedSpriteProperty.X)) {
         game.addScore(1)
         basic.setLedColor(0x00ff00)
