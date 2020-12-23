@@ -7,7 +7,7 @@ input.onButtonPressed(Button.B, function () {
 let Ball: game.LedSprite = null
 let Fänger: game.LedSprite = null
 let x = 0
-let Pause = 500
+let Pause = 700
 let Level = 1
 let RundenImLevel = 5
 game.setScore(1)
@@ -38,6 +38,6 @@ basic.forever(function () {
     if (game.score() == RundenImLevel) {
         game.setScore(1)
         Level += 1
-        Pause = Pause - 100
+        Pause = Pause - 50
     }
 })
