@@ -6,34 +6,30 @@ input.onButtonPressed(Button.B, function () {
 })
 let Ball: game.LedSprite = null
 let Fänger: game.LedSprite = null
-let x = 0
 let Pause = 700
-let Level = 1
-let RundenImLevel = 5
-game.setScore(1)
+let ScoreImLevel = 10
+game.setScore(0)
 game.setLife(10)
+while (!(input.buttonIsPressed(Button.A)) && !(input.buttonIsPressed(Button.B))) {
+    basic.showIcon(IconNames.Chessboard)
+    basic.pause(500)
+    basic.clearScreen()
+    basic.pause(500)
+}
 Fänger = game.createSprite(2, 4)
-basic.forever(function () {
+while (true) {
     Ball = game.createSprite(randint(0, 4), 0)
     for (let index = 0; index < 4; index++) {
         basic.pause(Pause)
         Ball.change(LedSpriteProperty.Y, 1)
     }
-    if (Fänger.get(LedSpriteProperty.X) == Ball.get(LedSpriteProperty.X)) {
+    if (Fänger.isTouching(Ball)) {
         game.addScore(1)
-        basic.setLedColor(0x00ff00)
-        basic.pause(500)
-        basic.turnRgbLedOff()
     } else {
         game.removeLife(1)
-        basic.setLedColor(0xff0000)
-        basic.pause(500)
-        basic.turnRgbLedOff()
     }
     Ball.delete()
-    if (game.score() == RundenImLevel) {
-        game.setScore(1)
-        Level += 1
+    if (game.score() > 0 && game.score() % ScoreImLevel == 0) {
         Pause = Pause - 50
     }
-})
+}
