@@ -10,8 +10,12 @@ Das Spiel:
 
 Der @boardname@ spielt Dir auf der 5x5 LED Matrix einen Ball (Punkt oder "Sprite" genannt) zu, den Du mit einem Fänger (ein zweiter Sprite) 
 fangen sollst. Den Fänger kannst Du mit den Tasten A und B bewegen. 
+
 Mit jedem gefangenen Ball erhöhst Du Deinen Punktestand (Score). Wenn Du den Ball nicht fängst, verliert Dein Fänger ein "Leben".
+
 Wenn die "Leben" des Fängers aufgebraucht sind, ist das Spiel zu Ende und der @boardname@ zeigt Dir Deinen Score an.
+Das nächste Spiel kannst Du starten, indem Du die Tasten A und B gleichzeitig drückst.
+
 Wenn Dein Fänger einen bestimmten Punktestand erreicht hat, wird der Ball schneller!
 
 
@@ -46,7 +50,7 @@ game.setLife(10)
 
 ## Schritt 4 @fullscreen
 
-Lege den Sprite für den Fänger in der Mitte der untersten Zeile der 5x5 LED Matrix mit dem Block
+Lege den Sprite für den Fänger in der Mitte der untersten Zeile (x=2, y=4) der 5x5 LED Matrix mit dem Block
 ``||Game:erzeuge Sprite an Position x: y:||`` an.
 (Die Koordinaten der 5x5 LED Matrix sind von 0 bis 4 numeriert und beginnen in x Richtung links und in y Richtung oben)
 
@@ -140,7 +144,7 @@ while (true) {
 
 ## Schritt 9 @fullscreen
 
-Den Sprite des Balles müssen wir noch aus der Anzeige entfernen mit dem Block ``||Game:lösche||``.
+Den Sprite des Balles müssen wir im vorletzten Schritt noch aus der Anzeige entfernen mit dem Block ``||Game:lösche||``.
 In der nächsten Runde der Endlos - Schleife entsteht ja wieder ein neuer Ball - Sprite.
 
 ```blocks
@@ -156,9 +160,6 @@ while (true) {
         game.removeLife(1)
     }
     Ball.delete()
-    if (game.score() > 0 && game.score() % PunkteImLevel == 0) {
-        BallFlugPause = BallFlugPause - 50
-    }
 ```
 
 
@@ -192,8 +193,9 @@ while (true) {
 
 In diesem Schritt programmieren wir die Steuerung des Fängers mit den Tasten A und B des @boardname@.
 Dazu benutzen wir den Block ``||input:wenn Knopf A gedrückt||`` aus dem Bereich ``||input:Eingaben||``
-Beim Drücken der Taste A rufen wir den Block ``||Game:ändere x um ||`` mit dem Wert -1 auf 
+Beim Drücken der Taste A rufen wir den Block ``||Game:ändere x um ||`` mit dem Wert -1 für den Fänger Sprite auf.
 Gleiches machen wir für für Taste B mit und ``||input:wenn Knopf B gedrückt||`` und dem Wert 1. 
+Mit -1 ändern wir die Position des Fängers um eins nach links und mit +1 um eins nach rechts. 
 
 Die anderen Programm - Schritte haben wir in den Hinweisen ab jetzt weggelassen wegen der besseren Übersichtlichkeit.
 Entferne sie nicht aus Deinem Programm!

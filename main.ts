@@ -10,12 +10,6 @@ let BallFlugPause = 700
 let PunkteImLevel = 10
 game.setScore(0)
 game.setLife(10)
-while (!(input.buttonIsPressed(Button.A)) && !(input.buttonIsPressed(Button.B))) {
-    basic.showIcon(IconNames.Chessboard)
-    basic.pause(500)
-    basic.clearScreen()
-    basic.pause(500)
-}
 Fänger = game.createSprite(2, 4)
 while (true) {
     Ball = game.createSprite(randint(0, 4), 0)
