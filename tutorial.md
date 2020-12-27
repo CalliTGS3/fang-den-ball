@@ -3,7 +3,7 @@
 ## ~avatar avatar @unplugged
 
 Programmiere ein Spiel auf Deinem @boardname@.
-Du lernst in dieser Anleitung, wie Dein @boardname@ Tastendrücke auswertet, wie Du Schleifen programmierst und wie Du 
+Du lernst in dieser Anleitung, wie Dein @boardname@ Tastendrücke auswertet, wie Du Bedingungen und Schleifen programmierst und wie Du 
 die Spielefunktionen von Makecode für @boardname@ benutzen kannst.
 
 Das Spiel:  
@@ -99,7 +99,7 @@ Dazu verwenden wir die Schleife ``||Loops:-mal wiederholen||`` und setzen den Z�
 Wir müssen eine Pause mit ``||Basic:pausiere (ms)||`` einfügen, ansonsten könnten wir gar nicht mitspielen, weil der @boardname@ viel schneller rechnen 
 kann als wir zuschauen und reagieren können. Damit wir die Bewegung des Balls während des Spiels verändern können, verwenden wir für die Pause die Variable
 ``||Variables:BallFlugPause||``. Die Y - Koordinate (d.h. die Zeile) des Balles verändern wir in der Schleife mit der Funktion
-``||Game:ändere Sprite in: um:||``. 
+``||Game:ändere y um:||``. 
 
 ```blocks
 while (true) {
@@ -114,9 +114,10 @@ while (true) {
 
 ## Schritt 8 @fullscreen
 
-In diesem Schritt prüfen wir, ob der Fänger - Sprite mit dem Ball - Sprite Kontakt hat. Dazu benutzen wir die Funktion 
-``||Game:ändere Sprite in: um:||``. Wenn der Fänger den Ball "angefasst" hat, erhöhen wir den Punktestand mit der Funktion
-``||Game:ändere Spielstand um:||``, andernfalls verringern wir die "Leben" des Fängers um 1 mit der Funktion ``||Game:Leben entfernen:||``.
+In diesem Schritt prüfen wir, ob der Fänger - Sprite mit dem Ball - Sprite Kontakt hat. Dazu verwenden wir einen Bedingungs - Block
+``||Logic:wenn dann ansonsten||`` und benutzen darin den Block ``||Game:berührt||``. 
+Wenn der Fänger den Ball "berührt" hat, erhöhen wir den Punktestand mit der Funktion
+``||Game:ändere Spielstand um||``, andernfalls verringern wir die "Leben" des Fängers um 1 mit der Funktion ``||Game:Leben entfernen||``.
 
 ```blocks
 while (true) {
@@ -187,7 +188,7 @@ while (true) {
 
 In diesem Schritt programmieren wir die Steuerung des Fängers mit den Tasten A und B des @boardname@.
 Dazu benutzen wir den Block ``||input:wenn Knopf A gedrückt||`` aus dem Bereich ``||input:Eingaben||``
-Beim Drücken der Taste A rufen wir die Funktion ``||Game:ändere ||`` mit dem Wert -1 auf 
+Beim Drücken der Taste A rufen wir die Funktion ``||Game:ändere x um ||`` mit dem Wert -1 auf 
 Gleiches machen wir für für Taste B mit und ``||input:wenn Knopf B gedrückt||`` und dem Wert 1. 
 
 ```blocks
