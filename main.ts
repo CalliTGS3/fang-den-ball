@@ -6,8 +6,8 @@ input.onButtonPressed(Button.B, function () {
 })
 let Ball: game.LedSprite = null
 let Fänger: game.LedSprite = null
-let Pause = 700
-let ScoreImLevel = 10
+let BallFlugPause = 700
+let PunkteImLevel = 10
 game.setScore(0)
 game.setLife(10)
 while (!(input.buttonIsPressed(Button.A)) && !(input.buttonIsPressed(Button.B))) {
@@ -20,7 +20,7 @@ Fänger = game.createSprite(2, 4)
 while (true) {
     Ball = game.createSprite(randint(0, 4), 0)
     for (let index = 0; index < 4; index++) {
-        basic.pause(Pause)
+        basic.pause(BallFlugPause)
         Ball.change(LedSpriteProperty.Y, 1)
     }
     if (Fänger.isTouching(Ball)) {
@@ -29,7 +29,7 @@ while (true) {
         game.removeLife(1)
     }
     Ball.delete()
-    if (game.score() > 0 && game.score() % ScoreImLevel == 0) {
-        Pause = Pause - 50
+    if (game.score() > 0 && game.score() % PunkteImLevel == 0) {
+        BallFlugPause = BallFlugPause - 50
     }
 }
