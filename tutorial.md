@@ -38,7 +38,7 @@ let PunkteImLevel = 10
 
 ## Schritt 3 @fullscreen
 
-Initialisiere ``||Game:setze Spielstand auf||`` mit 700 und ``||Game:setze Anzahl Leben||``  mit 10 im Block "Spiel".
+Initialisiere ``||Game:setze Spielstand auf||`` mit 0 und ``||Game:setze Anzahl Leben||``  mit 10 im Block "Spiel".
 
 ```blocks
 let BallFlugPause = 700
