@@ -24,7 +24,7 @@ Ballgeschwindigkeit und die Anzahl der Punkte in einem Geschwindigkeits-Level: `
 ## Schritt 2 @fullscreen
 
 Initialisiere die Variablen ``||Variables:BallFlugPause||`` und ``||Variables:PunkteImLevel||`` mit folgenden Werten:
-(700 ms Zeit für die Bewegung des Balls von einem Punkt zum anderen; kürzere Zeit resultiert in schnellerem Ball!)
+(700 ms Zeit für die Bewegung des Balls von einer Zeile der 5x5 LED Matrix zum anderen; kürzere Zeit resultiert in schnellerem Ball!)
 
 ```blocks
 let BallFlugPause = 700
@@ -46,7 +46,7 @@ game.setLife(10)
 
 ## Schritt 4 @fullscreen
 
-Lege den Sprite für den Fänger in der Mitte der untersten Zeile der 5x5 LED Matrix mit 
+Lege den Sprite für den Fänger in der Mitte der untersten Zeile der 5x5 LED Matrix mit dem Block
 ``||Game:erzeuge Sprite an Position x: y:||`` an.
 (Die Koordinaten der 5x5 LED Matrix sind von 0 bis 4 numeriert und beginnen in x Richtung links und in y Richtung oben)
 
@@ -80,9 +80,12 @@ while (true) {
 ## Schritt 6 @fullscreen
 
 In diesem Schritt sorgen wir zunächst für die Erzeugung des Balles an einer zufälligen Position in der oberen Zeile der 5x5 LED Matrix.
-Dazu benutzen wir wieder die Funktion ``||Game:erzeuge Sprite an Position x: y:||``, aber setzen x nicht auf einen festen Wert, sondern 
+Dazu benutzen wir wieder den Block ``||Game:erzeuge Sprite an Position x: y:||``, aber setzen x nicht auf einen festen Wert, sondern 
 lassen den @boardname@ einen zufälligen Wert zwischen 0 und 4 ausrechnen (unsere 5x5 Matrix kann einen Punkt auf einen Wert zwischen 0 und 4 setzen).
-Dazu benutzen wir die Funktion ``||Math:wähle eine zufällige Zahl von bis||``
+Dazu benutzen wir den Block ``||Math:wähle eine zufällige Zahl von bis||``
+
+Die ersten Programm - Schritte haben wir in den Hinweisen ab jetzt weggelassen wegen der besseren Übersichtlichkeit.
+Entferne sie nicht aus Deinem Programm!
 
 ```blocks
 while (true) {
@@ -98,8 +101,9 @@ und zwar so langsam, daß wir als Spieler die Gelegenheit haben, die Bewegung zu
 Dazu verwenden wir die Schleife ``||Loops:-mal wiederholen||`` und setzen den Zähler auf 4, weil wir ja den Ball um 4 Zeilen bewegen wollen.
 Wir müssen eine Pause mit ``||Basic:pausiere (ms)||`` einfügen, ansonsten könnten wir gar nicht mitspielen, weil der @boardname@ viel schneller rechnen 
 kann als wir zuschauen und reagieren können. Damit wir die Bewegung des Balls während des Spiels verändern können, verwenden wir für die Pause die Variable
-``||Variables:BallFlugPause||``. Die Y - Koordinate (d.h. die Zeile) des Balles verändern wir in der Schleife mit der Funktion
+``||Variables:BallFlugPause||``. Die Y - Koordinate (d.h. die Zeile) des Balles verändern wir in der Schleife mit dem Block
 ``||Game:ändere y um:||``. 
+
 
 ```blocks
 while (true) {
@@ -116,8 +120,8 @@ while (true) {
 
 In diesem Schritt prüfen wir, ob der Fänger - Sprite mit dem Ball - Sprite Kontakt hat. Dazu verwenden wir einen Bedingungs - Block
 ``||Logic:wenn dann ansonsten||`` und benutzen darin den Block ``||Game:berührt||``. 
-Wenn der Fänger den Ball "berührt" hat, erhöhen wir den Punktestand mit der Funktion
-``||Game:ändere Spielstand um||``, andernfalls verringern wir die "Leben" des Fängers um 1 mit der Funktion ``||Game:Leben entfernen||``.
+Wenn der Fänger den Ball "berührt" hat, erhöhen wir den Punktestand mit dem Block
+``||Game:ändere Spielstand um||``, andernfalls verringern wir die "Leben" des Fängers um 1 mit dem Block ``||Game:Leben entfernen||``.
 
 ```blocks
 while (true) {
@@ -136,7 +140,7 @@ while (true) {
 
 ## Schritt 9 @fullscreen
 
-Den Sprite des Balles müssen wir noch aus der Anzeige entfernen mit der Funktion ``||Game:lösche||``.
+Den Sprite des Balles müssen wir noch aus der Anzeige entfernen mit dem Block ``||Game:lösche||``.
 In der nächsten Runde der Endlos - Schleife entsteht ja wieder ein neuer Ball - Sprite.
 
 ```blocks
@@ -188,8 +192,11 @@ while (true) {
 
 In diesem Schritt programmieren wir die Steuerung des Fängers mit den Tasten A und B des @boardname@.
 Dazu benutzen wir den Block ``||input:wenn Knopf A gedrückt||`` aus dem Bereich ``||input:Eingaben||``
-Beim Drücken der Taste A rufen wir die Funktion ``||Game:ändere x um ||`` mit dem Wert -1 auf 
+Beim Drücken der Taste A rufen wir den Block ``||Game:ändere x um ||`` mit dem Wert -1 auf 
 Gleiches machen wir für für Taste B mit und ``||input:wenn Knopf B gedrückt||`` und dem Wert 1. 
+
+Die anderen Programm - Schritte haben wir in den Hinweisen ab jetzt weggelassen wegen der besseren Übersichtlichkeit.
+Entferne sie nicht aus Deinem Programm!
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
