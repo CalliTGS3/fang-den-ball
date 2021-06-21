@@ -11,7 +11,7 @@ let PunkteImLevel = 10
 game.setScore(0)
 game.setLife(10)
 Fänger = game.createSprite(2, 4)
-while (true) {
+basic.forever(function () {
     Ball = game.createSprite(randint(0, 4), 0)
     for (let index = 0; index < 4; index++) {
         basic.pause(BallFlugPause)
@@ -26,4 +26,4 @@ while (true) {
     if (game.score() > 0 && game.score() % PunkteImLevel == 0) {
         BallFlugPause = BallFlugPause - 50
     }
-}
+})
