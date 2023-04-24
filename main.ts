@@ -1,7 +1,7 @@
-input.onButtonPressed(Button.A, function () {
+input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     Fänger.change(LedSpriteProperty.X, -1)
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     Fänger.change(LedSpriteProperty.X, 1)
 })
 let Ball: game.LedSprite = null
